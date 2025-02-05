@@ -1,8 +1,8 @@
 CC = clang  # Or gcc
 CFLAGS = -Wall -Wextra -O2
-SRC = $(wildcard *.c)  # Find all .c files
-OBJ = $(SRC:.c=.o)  # Convert .c files to .o files
-TARGET = my_program  # Name of output executable
+SRC = $(wildcard *.c)
+OBJ = $(SRC:.c=.o)
+TARGET = my_program
 
 all: $(TARGET)
 
@@ -14,3 +14,15 @@ $(TARGET): $(OBJ)
 
 clean:
 	rm -f $(OBJ) $(TARGET)
+
+watch:
+	pgrep $(TARGET) && pkill $(TARGET); \
+	ls *.c | entr -r sh -c 'make && sleep 2 && clear && ./$(TARGET)'
+
+# watch:
+# 	pgrep $(TARGET) && pkill $(TARGET); \
+# 	ls *.c | entr -r make run
+
+run: $(TARGET)
+	# clear
+	./$(TARGET)
