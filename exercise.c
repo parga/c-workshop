@@ -1,9 +1,12 @@
 #include "exercise.h"
 
-float snek_score(int number_files, int num_contributors, int num_commits, float avg_bug_criticality) {
-  int size_factor = number_files * num_commits;
-  int complexity_factor = num_contributors + size_factor;
+char *get_temperature_status(int temp){
+  if (temp < 70) {
+    return "too cold";
+  }
+  if (temp > 90) {
+    return "too hot";
+  }
+  return "just right";
+};
 
-  return avg_bug_criticality * complexity_factor;
-
-}
