@@ -1,6 +1,5 @@
-main
+# ignore the genreted files
 *.o
-*.out
 
 # ignore my_program since is the default name to the generated executable 
 my_program
