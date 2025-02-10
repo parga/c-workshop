@@ -4,7 +4,6 @@ SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 TARGET = my_program
 
-# all: $(TARGET)
 $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(TARGET)
 
