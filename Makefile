@@ -1,5 +1,5 @@
 CC = clang  # Or gcc
-CFLAGS = -Wall -Wextra -O2
+CFLAGS = -Wall -Wextra -O2 -g
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 TARGET = my_program
@@ -19,9 +19,6 @@ watch:
 	pgrep $(TARGET) && pkill $(TARGET); \
 	ls *.c | entr -r sh -c 'make && sleep 2 && clear && ./$(TARGET)'
 
-# watch:
-# 	pgrep $(TARGET) && pkill $(TARGET); \
-# 	ls *.c | entr -r make run
 
 run: $(TARGET)
 	# clear
